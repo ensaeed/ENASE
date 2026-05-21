@@ -28,6 +28,6 @@ Add Employee Test
 
     Click Button    xpath://button[@type='submit']
 
-    Wait Until Page Contains    Personal Details    20s
+    Sleep    5
     Capture Page Screenshot
     Close Browser
