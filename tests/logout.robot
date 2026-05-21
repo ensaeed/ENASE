@@ -8,7 +8,8 @@ ${BROWSER}    chrome
 *** Test Cases ***
 Logout Test
 
-    Open Browser    ${URL}    ${BROWSER}
+    Open Browser    ${URL}    chrome
+...    options=add_argument(--headless);add_argument(--no-sandbox);add_argument(--disable-dev-shm-usage)
     Maximize Browser Window
 
     Wait Until Element Is Visible    name=username    20s

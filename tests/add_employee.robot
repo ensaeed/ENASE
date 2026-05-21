@@ -3,7 +3,8 @@ Library    SeleniumLibrary
 
 *** Variables ***
 ${URL}        https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
-${BROWSER}    chrome
+Open Browser    ${URL}    chrome
+...    options=add_argument(--headless);add_argument(--no-sandbox);add_argument(--disable-dev-shm-usage)
 
 *** Test Cases ***
 Add Employee Test
@@ -33,6 +34,5 @@ Add Employee Test
 
     Click Button    xpath://button[@type='submit']
 
-    Sleep    5
-
+    Wait Until Element Is Visible    name=username    20s
     Close Browser
