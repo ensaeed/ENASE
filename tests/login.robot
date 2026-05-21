@@ -9,8 +9,7 @@ ${PASSWORD}     admin123
 
 *** Test Cases ***
 Valid Login Test
-    Open Browser    ${URL}    chrome
-...    options=add_argument(--headless);add_argument(--no-sandbox);add_argument(--disable-dev-shm-usage)
+    Open Browser    ${URL}    chrome    options=add_argument("--headless");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")
     Maximize Browser Window
 
     Wait Until Element Is Visible    name=username    20s
