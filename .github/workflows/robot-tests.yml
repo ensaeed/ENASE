@@ -2,9 +2,9 @@ name: Robot Framework Tests
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
+
   workflow_dispatch:
 
 jobs:
@@ -22,7 +22,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Run Robot Framework tests
@@ -30,8 +29,7 @@ jobs:
           robot -d reports tests
 
       - name: Upload Robot Framework reports
-        if: always()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: robot-framework-reports
           path: reports/
